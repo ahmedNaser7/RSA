@@ -1,8 +1,8 @@
 #include <iostream>
 #include <cmath>
 #include <string>
-
 using namespace std;
+// GCD
 int gcd (int a,int b)
 {
     if (b==0)
@@ -10,6 +10,7 @@ int gcd (int a,int b)
     else
      return  gcd (b,a%b );
 }
+// GET D
 long long power(long long e, long long m)
 {
 
@@ -26,7 +27,7 @@ long long power(long long e, long long m)
 
     return d;
 }
-
+//decryption
 long long decry (long long f, long long d, long long n)
 {
 
@@ -60,9 +61,7 @@ int main()
 //Equations
 
         n =p*q;
-
        m = (p-1)*(q-1);
-
     int g;
 
     for(int i=4; i<m; ++i)
@@ -78,19 +77,16 @@ int main()
 
     cout <<"\n public key ("<<e<<","<<n<<")\n\n";
 
-    //encryption
+ //encryption
 
 cout<<"the encryption is : ";
 
   for (i=0;i<massage.size();i++)
     {
-
-
     int f=massage[i];
          z=pow(f,e);
          encry[i] =fmod(z ,n);
     cout<<char(encry[i]);
-
     }
     cout<<endl;
 
@@ -100,7 +96,7 @@ cout<<"the decryption is : ";
 
 for ( int i=0;i<massage.size();i++)
 
-         decry (encry[i],power(e,m),n);
+     decry (encry[i],power(e,m),n);
 
 return 0;
 
