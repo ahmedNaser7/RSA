@@ -1,0 +1,109 @@
+#include <iostream>
+#include <cmath>
+#include <string>
+
+using namespace std;
+int gcd (int a,int b)
+{
+    if (b==0)
+        return a;
+    else
+     return  gcd (b,a%b );
+}
+long long power(long long e, long long m)
+{
+
+    long long d = 0;
+
+    for(long long i=2; i<m; ++i)
+    {
+        if( (e * i) % m == 1 )
+        {
+            d = i;
+            break;
+        }
+    }
+
+    return d;
+}
+
+long long decry (long long f, long long d, long long n)
+{
+
+    long long res = 1;
+
+    while (d > 0)
+    {
+        // If exp is odd
+        if (d % 2 == 1)
+            res = (res * f) % n;
+
+        d = d / 2;
+        f = (f * f) % n;
+
+    }
+
+    cout<<char(res);
+
+}
+
+int main()
+{
+    int i;
+    long long  p=17 ,q=11 ,n,m,d,e,z ,encry[99999];
+         string massage;
+     cout<<"enter the massage to encrypt : ";
+
+      getline(cin,massage);
+
+
+//Equations
+
+        n =p*q;
+
+       m = (p-1)*(q-1);
+
+    int g;
+
+    for(int i=4; i<m; ++i)
+    {
+        g = gcd(m, i);
+
+        if(g == 1 && i != p && i != q)
+        {
+            e = i;
+            break;
+        }
+    }
+
+    cout <<"\n public key ("<<e<<","<<n<<")\n\n";
+
+    //encryption
+
+cout<<"the encryption is : ";
+
+  for (i=0;i<massage.size();i++)
+    {
+
+
+    int f=massage[i];
+         z=pow(f,e);
+         encry[i] =fmod(z ,n);
+    cout<<char(encry[i]);
+
+    }
+    cout<<endl;
+
+//decryption
+
+cout<<"the decryption is : ";
+
+for ( int i=0;i<massage.size();i++)
+
+         decry (encry[i],power(e,m),n);
+
+return 0;
+
+
+
+    }
