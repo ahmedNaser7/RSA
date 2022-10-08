@@ -1,0 +1,7 @@
+                                     [RSA algorithm] 
+
+You can use this algorithm in c++ language in your project or edit it as u want
+
+- copy source code into compilar (c++) 
+- run it and there is already two prime numbers
+- have fun :)
